@@ -31,15 +31,15 @@ public class MemoController {
 		log.info("MemoController's dataBinder ..." + webDataBinder);
 		webDataBinder.registerCustomEditor(LocalDate.class, "dateTest", new DateTestEditor());
 	}
-
-	@Autowired
-	private MemoRepository memoRepository;
+	
 	
 	@GetMapping("/add")
 	public void add_get() {
 		log.info("GET /memo/add...");
 	}
 
+	@Autowired
+	private MemoRepository memoRepository;
 	@PostMapping("/add")
 	public void add_post(@Valid MemoDto dto, BindingResult bindingResult, Model model) {
 		log.info("POST /memo/add..."+dto);
@@ -51,14 +51,12 @@ public class MemoController {
 				log.info("Error Field : "+error.getField()+" Error Msg : "+error.getDefaultMessage());
 				model.addAttribute(error.getField(),error.getDefaultMessage());
 			}
-			
 		}
-
 		Memo memo = new Memo();
 		memo.setId(dto.getId());
 		memo.setText(dto.getText());
 		memoRepository.save(memo);
-
+		
 	}
 	
 	// static private 	

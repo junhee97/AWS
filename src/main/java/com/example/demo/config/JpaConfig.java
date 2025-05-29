@@ -64,7 +64,7 @@ public class JpaConfig {
     }
 
 
-//    //애플리케이션 시작 시 데이터베이스 초기화
+    //애플리케이션 시작 시 데이터베이스 초기화
 //    @Bean
 //    public DataSourceInitializer dataSourceInitializer() {
 //        DataSourceInitializer initializer = new DataSourceInitializer();

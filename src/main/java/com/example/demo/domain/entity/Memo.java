@@ -19,6 +19,4 @@ public class Memo {
     @Id
     private int id;
     private String text;
-
-
 }
